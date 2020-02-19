@@ -1,3 +1,5 @@
+![multi_auth_jwt_token](https://user-images.githubusercontent.com/29349064/74833836-79871980-5344-11ea-8e58-9077c9287a9b.jpg)
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
