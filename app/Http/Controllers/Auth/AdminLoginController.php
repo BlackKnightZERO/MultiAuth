@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
+// use Illuminate\Support\Facades\Hash;
 
 class AdminLoginController extends Controller
 {
@@ -16,6 +17,7 @@ class AdminLoginController extends Controller
 
     public function showLoginForm()
     {
+        // return Hash::make(123123123);
     	return view('auth.adminLogin');
     }
     public function login(Request $request)

@@ -18,6 +18,16 @@
                 </div> -->
                 @component('components.who')
                 @endcomponent
+                <br>
+                <div class="container">
+                Request:
+                <form  method="post" action="{{ route('user.request') }}">
+                    @csrf
+                    <input type="text" name="request_item" class="form-control">
+                    <br>
+                    <input type="submit" name="submit" value="submit" class="btn btn-sm">
+                </form>
+                </div>
             </div>
         </div>
     </div>

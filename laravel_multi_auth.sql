@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 16, 2020 at 08:19 AM
+-- Generation Time: Feb 19, 2020 at 01:10 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.10
 
@@ -45,7 +45,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `title`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin admin', 'admin@gmail.com', NULL, 'admin title', '$2y$10$PWgxkfFrlIWS2g2KrnG40.g2OgwcDu7oOBmB6uHmj4He6Krt6JR7y', NULL, '2020-02-15 18:00:00', '2020-02-15 18:00:00');
+(1, 'Admin admin', 'admin@gmail.com', NULL, 'admin title', '$2y$10$9JAoF.CDE8FBpl418zmloeCFyJSJayoU/fnexnkwSdbEZVcNGiu7m', NULL, '2020-02-15 18:00:00', '2020-02-15 18:00:00');
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,8 @@ CREATE TABLE `migrations` (
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2020_02_16_044608_create_admins_table', 1);
+(3, '2020_02_16_044608_create_admins_table', 1),
+(4, '2020_02_19_065510_create_requests_table', 2);
 
 -- --------------------------------------------------------
 
@@ -102,7 +103,30 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Arif Faysal', 'ayon.arif.10@gmail.com', NULL, '$2y$10$PWgxkfFrlIWS2g2KrnG40.g2OgwcDu7oOBmB6uHmj4He6Krt6JR7y', NULL, '2020-02-15 23:01:51', '2020-02-15 23:01:51');
+(1, 'Arif Faysal', 'ayon.arif.10@gmail.com', NULL, '$2y$10$9JAoF.CDE8FBpl418zmloeCFyJSJayoU/fnexnkwSdbEZVcNGiu7m', NULL, '2020-02-15 23:01:51', '2020-02-15 23:01:51');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_requests`
+--
+
+CREATE TABLE `user_requests` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `request_item` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `user_requests`
+--
+
+INSERT INTO `user_requests` (`id`, `user_id`, `request_item`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 'item1', 1, '2020-02-19 01:17:32', '2020-02-19 01:17:32'),
+(2, 1, 'new item 2', 1, '2020-02-19 06:09:12', '2020-02-19 06:09:12');
 
 --
 -- Indexes for dumped tables
@@ -135,6 +159,12 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
+-- Indexes for table `user_requests`
+--
+ALTER TABLE `user_requests`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -148,13 +178,19 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `user_requests`
+--
+ALTER TABLE `user_requests`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
